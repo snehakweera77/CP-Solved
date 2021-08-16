@@ -18,7 +18,7 @@ public class A215 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (mArr[j] % nArr[i] == 0)
-                    max = mArr[j] / nArr[i];
+                    max = Math.max(max, mArr[j] / nArr[i]);
             }
         }
         int count = 0;
