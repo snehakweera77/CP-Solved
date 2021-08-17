@@ -1,0 +1,18 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class A431 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int[] arr = new int[5];
+        for (int i = 1; i < 5 ; i++)
+            arr[i] = sc.nextInt();
+        String s = sc.next();
+        int sum = 0;
+        for (int i = 0; i < s.length() ; i++) {
+            sum += arr[s.charAt(i) - '0'];
+        }
+        System.out.println(sum);
+    }
+}
