@@ -8,6 +8,8 @@ public class A441 {
         int n = sc.nextInt();
         int v = sc.nextInt();
         boolean flag = false;
+        int[] ans = new int[n];
+        int count = 0;
         for (int i = 0; i < n; i++) {
             int a = sc.nextInt();
             boolean sell = false;
@@ -17,11 +19,16 @@ public class A441 {
                     sell = true;
             }
             if (sell) {
-                System.out.print(i + 1 + " ");
+                ans[count++] = i + 1;
                 flag = true;
             }
         }
         if (!flag)
             System.out.println("0");
+        else {
+            System.out.println(count);
+            for (int i = 0; i < count; i++)
+                System.out.print(ans[i] + " ");
+        }
     }
 }
