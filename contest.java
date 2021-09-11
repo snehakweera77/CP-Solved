@@ -3,36 +3,37 @@ package com.company;
 import java.util.*;
 
 class contest {
+    public static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while(t-- > 0){
-            PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
-            HashMap<Integer, Integer> map = new HashMap<>();
-            int n = sc.nextInt();
-            int k = sc.nextInt();
-            int mid = k / 2;
-            int[] s = new int[n];
-            for (int i = 0; i < n; i++) {
-                s[i] = sc.nextInt();
-                pq.add(s[i]);
-                map.put(s[i], i);
-            }
-            int ans = 0;
-            PriorityQueue<Integer> ind = new PriorityQueue<>();
-            for (int i = 0; i < k; i++) {
-                int temp = pq.poll();
-                if (i == mid)
-                    ans = temp;
-                ind.add(map.get(temp));
-            }
-            System.out.println(ans);
-            for (int i = 0; i < k; i++) {
-                System.out.print(s[ind.poll()] + " ");
-            }
-
-
+            solve();
         }
+    }
 
+    private static void solve() {
+        int n = sc.nextInt();
+        sc.nextLine();
+        String s = sc.next();
+        Stack<Integer> a = new Stack<>();
+        Stack<Integer> b = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            if (s.charAt(i) == 'a') {
+                if (!b.isEmpty()) {
+                    System.out.println(b.peek() + " " + (i + 1));
+                    return;
+                }
+                else
+                    a.push(i + 1);
+            } else {
+                if (!a.isEmpty()) {
+                    System.out.println(a.peek() + " " + (i + 1));
+                    return;
+                }
+                else
+                    b.push(i + 1);
+            }
+        }
+        System.out.println("-1 -1");
     }
 }
