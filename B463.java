@@ -9,7 +9,7 @@ public class B463 {
         int x = 0;
         int ans = 0;
         int energy = 0;
-        for (int i = 1; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             int y = sc.nextInt();
             energy += x - y;
             if (energy < 0) {
