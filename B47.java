@@ -44,6 +44,5 @@ public class B47 {
             else if (m[2] == 2)
                 System.out.print('C');
         }
-
     }
 }
